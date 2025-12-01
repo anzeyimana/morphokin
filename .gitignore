@@ -21,3 +21,6 @@ __pycache__
 
 morphokin.egg-info
 morphokin.egg-info/
+
+.idea
+.idea/
