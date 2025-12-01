@@ -145,6 +145,18 @@ docker run -d -v /home/ubuntu/MORPHODATA:/MORPHODATA \
 
 ```
 
+You will have to wait for MorphoKIN socket server to be ready by monitoring the container logs.
+
+```shell
+
+docker container ls
+
+docker logs -f <CONTAINER ID>
+
+# MorphoKIN server is ready once you see a message like this: MorphoKin server listening on UNIX SOCKET: /MORPHODATA/run/morpho.sock
+
+```
+
 ### 3.1 Morphological analysis and POS Tagging
 ```python
 
