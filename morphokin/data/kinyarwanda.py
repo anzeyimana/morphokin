@@ -26,6 +26,12 @@ EN_PAD_IDX = 1
 NUM_SPECIAL_TOKENS = 5
 
 MY_PRINTABLE = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+class FlexConfig:
+    def __init__(self, cfg=None):
+        self.tot_num_lm_morphs = 24122
+        self.tot_num_pos_tags = 157
+        self.tot_num_stems = 35497
+        self.tot_num_affixes = 407
 
 
 class ParsedToken:

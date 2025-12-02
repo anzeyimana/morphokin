@@ -24,7 +24,7 @@ This tutorial was tested on [AWS EC2](https://aws.amazon.com/ec2/) *g6e.4xlarge*
 The free license is only allowed for academic and non-commercial use of the morphological analyzer/synthesizer.
 Refer to the [Terms and Conditions](https://docs.google.com/document/d/17elFQbP4lR8uSufsU1NymObH_t2z0dy7sq78fbIMU7M/view) for the morphological analyzer/synthesizer.
 
-To request a free license, fill in the registration form available at::
+To request a free license, fill in the registration form available at:
 https://morphokin.kinlp.com/license/request
 The form requests basic information about the user and their organization.
 Once submitted, you will be required to verify the email address by clicking on the confirmation link sent to your email address.
@@ -95,6 +95,20 @@ morphokin --morphokin_working_dir /MORPHODATA --task LICENSE --kinlp_license /MO
 ```
 
 ### 2.2 Morphological parsing of Kinyarwanda text
+
+MorphoKIN parsing generates a tab-separated list of word parses where each word contains parse ids(tab-separated) and surface form separated by space.
+Parse ids contain the following fields: *lm_stem_id,lm_morph_id,pos_tag_id,stem_id,len(extra_stem_token_ids),extra_stem_token_ids,len(affix_ids),affix_ids* which we describe below:
+- lm_stem_id: common stem id, this is an index into a list of common Kinyarwanda stems [0 - 9999]
+- lm_morph_id: morphological tag id, this is an index into a list of common Kinyarwanda morphological parses [0 - 24121]
+- pos_tag_id: part-of-speech tag id [0 - 156]
+- stem_id: fine-grained stem id or sub-word token id [0 - 35496]
+- len(extra_stem_token_ids): number of extra sub-word tokens
+- extra_stem_token_ids: extra sub-word ids [0 - 35496]
+- len(affix_ids): number of affixes
+- affix_ids: affix ids [0 - 406]
+
+Example parse: 
+*438,11,18,336,0,3,17,31,7 Umuhinzi	20,1053,15,62,0,5,20,37,5,11,6 arasabwa	201,1920,27,14,0,3,150,201,170 iki	7,24029,64,8,0,0 mu	33,21,5,59,0,3,24,5,6 gukomeza	1568,21,5,1465,0,3,24,5,6 gusigasira	807,24,18,1135,0,3,10,50,7 ibishanga	542,2749,15,785,0,6,27,9,5,54,11,8 byatunganijwe	53,24065,100,130,0,0 ?*
 
 Parse single text file:
 
