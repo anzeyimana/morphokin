@@ -5,6 +5,8 @@ MorphoKIN, the morphological analyzer and generator for Kinyarwanda is a softwar
 MorphoKIN implements core algorithms for Kinyarwanda morphological analysis, synthesis, syllabic tokenization and text normalization for text-to-speech applications.
 These core algorithms are described in detail in the referenced scientific publications which we made in the previous years.
 
+---
+
 ## 1. Installing MorphoKIN
 
 ### Minimum System Requirements
@@ -12,12 +14,7 @@ These core algorithms are described in detail in the referenced scientific publi
 - x86_64 CPU
 - 64 GB of System RAM
 - 64 GB of Disk Storage
-- Nvidia Drivers
-- Nvidia GPU
 - Docker
-- NVIDIA Container Toolkit
-
-This tutorial was tested on [AWS EC2](https://aws.amazon.com/ec2/) *g6e.4xlarge* instance with "Amazon/Deep Learning OSS Nvidia Driver AMI GPU PyTorch 2.8 (Ubuntu 24.04) 20251101" AMI.
 
 ### 1.1. Get a free license for MorphoKIN
 
@@ -78,6 +75,8 @@ gunzip -c MORPHODATA.tar.gz | tar x
 
 ```
 
+---
+
 ## 2. Using MorphoKIN from shell terminal
 
 ### 2.1 Verify the free license validity
@@ -88,7 +87,7 @@ The following example assume you have downloaded your free license file (e.g. KI
 # Ensure you have the free license file, e.g.
 # cp KINLP_LICENSE_FILE.dat /home/ubuntu/MORPHODATA/licenses/
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA --gpus all -it morphokin:latest bash
+docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --task LICENSE --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem
 
@@ -114,7 +113,7 @@ Parse single text file:
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA --gpus all -it morphokin:latest bash
+docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task PTF --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --input_file /sample_corpus.txt --output_file /preparsed_sample_corpus.txt
 
@@ -124,7 +123,7 @@ Batch parse a list of text files in the same directory:
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA --gpus all -it morphokin:latest bash
+docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task BTF --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --batch_files_dir / --batch_files_list sample_corpus.txt,another_corpus.txt
 
@@ -136,11 +135,13 @@ This is for morphological analysis and synthesis by external programs
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA --gpus all -it morphokin:latest bash
+docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 nohup morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task RMS --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --morpho_socket /MORPHODATA/run/morpho.sock  &>> rms.log &
 
 ```
+
+---
 
 ## 3. Python usage examples
 
@@ -148,8 +149,7 @@ These examples need to MorphoKIN to be running on unix domain socket (See sectio
 
 ```shell
 
-docker run -d -v /home/ubuntu/MORPHODATA:/MORPHODATA \
-  --gpus all morphokin:latest morphokin \
+docker run -d -v /home/ubuntu/MORPHODATA:/MORPHODATA morphokin:latest morphokin \
   --morphokin_working_dir /MORPHODATA \
   --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  \
   --task RMS \
@@ -219,6 +219,7 @@ print(id_seq)
 
 ```
 
+---
 
 ## References
 
