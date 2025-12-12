@@ -50,7 +50,7 @@ Load the downloaded docker image into docker:
 
 ```shell
 
-docker load --input morphokin.tar.gz
+sudo docker load --input morphokin.tar.gz
 
 ```
 
@@ -87,7 +87,7 @@ The following example assume you have downloaded your free license file (e.g. KI
 # Ensure you have the free license file, e.g.
 # cp KINLP_LICENSE_FILE.dat /home/ubuntu/MORPHODATA/licenses/
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
+sudo docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --task LICENSE --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem
 
@@ -113,7 +113,7 @@ Parse single text file:
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
+sudo docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task PTF --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --input_file /sample_corpus.txt --output_file /preparsed_sample_corpus.txt
 
@@ -123,19 +123,36 @@ Batch parse a list of text files in the same directory:
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
+sudo docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task BTF --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --batch_files_dir / --batch_files_list sample_corpus.txt,another_corpus.txt
 
 ```
 
-### 2.3 Run MorphoKIN server on Unix domain socket
+### 2.3 Use MorphoKIN interactive shell for testing sentence parsing
+
+MorphoKIN interactive shell allows you to evaluate morphological parsing of sentences.
+Start the shell using the "SNT" task as follow:
+
+```shell
+
+sudo docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
+
+morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task SNT --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem
+
+
+```
+![Analysis output](analysis.png "Example of sentence parsing output using the interactive shell")
+
+You paste or type a sentence, paragraph or document text and see its parses displayed as the image above.
+
+### 2.4 Run MorphoKIN server on Unix domain socket
 
 This is for morphological analysis and synthesis by external programs
 
 ```shell
 
-docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
+sudo docker run --rm -v /home/ubuntu/MORPHODATA:/MORPHODATA -it morphokin:latest bash
 
 nohup morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  --task RMS --kinlp_license /MORPHODATA/licenses/KINLP_LICENSE_FILE.dat  --ca_roots_pem_file /MORPHODATA/data/roots.pem --morpho_socket /MORPHODATA/run/morpho.sock  &>> rms.log &
 
@@ -149,7 +166,7 @@ These examples need to MorphoKIN to be running on unix domain socket (See sectio
 
 ```shell
 
-docker run -d -v /home/ubuntu/MORPHODATA:/MORPHODATA morphokin:latest morphokin \
+sudo docker run -d -v /home/ubuntu/MORPHODATA:/MORPHODATA morphokin:latest morphokin \
   --morphokin_working_dir /MORPHODATA \
   --morphokin_config_file /MORPHODATA/data/analysis_config_file.conf  \
   --task RMS \
