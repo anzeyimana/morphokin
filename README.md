@@ -6,10 +6,25 @@ MorphoKIN implements core algorithms for Kinyarwanda morphological analysis, syn
 These core algorithms are described in detail in the referenced scientific publications which we made in the previous years.
 
 ---
-[[_TOC_]]
+## Contents
+* [1 Installing MorphoKIN](#1)
+  * [Minimum System Requirements](#1_0)
+  * [1.1 Get a free license for MorphoKIN](#1_1)
+  * [1.2 Download and install MorphoKIN docker image](#1_2)
+  * [1.3 Download and extract MorphoKIN DATA package](#1_3)
+* [2 Using MorphoKIN from shell terminal](#2)
+  * [2.1 Verify the free license validity](#2_1)
+  * [2.2 Morphological parsing of Kinyarwanda text](#2_2)
+  * [2.3 Use MorphoKIN interactive shell for testing sentence parsing](#2_3)
+  * [2.4 Run MorphoKIN server on Unix domain socket](#2_4)
+* [3 Python usage examples](#3)
+  * [3.1 Morphological analysis and POS Tagging](#3_1)
+  * [3.2 Text Normalization (i.e. for TTS)](#3_2)
+  * [3.3 Syllabic Tokenization (i.e. for TTS)](#3_3)
+  * [3.4 Morphological synthesis](#3_4)
 ---
 
-## 1. Installing MorphoKIN
+## 1 Installing MorphoKIN
 
 ### Minimum System Requirements
 
@@ -18,7 +33,7 @@ These core algorithms are described in detail in the referenced scientific publi
 - 64 GB of Disk Storage
 - Docker
 
-### 1.1. Get a free license for MorphoKIN
+### 1.1 Get a free license for MorphoKIN
 
 The free license is only allowed for academic and non-commercial use of the morphological analyzer/synthesizer.
 Refer to the [Terms and Conditions](https://docs.google.com/document/d/17elFQbP4lR8uSufsU1NymObH_t2z0dy7sq78fbIMU7M/view) for the morphological analyzer/synthesizer.
@@ -30,7 +45,7 @@ Once submitted, you will be required to verify the email address by clicking on 
 
 Once approved, a free license file will be sent to your email address.
 
-### 1.2. Download and install MorphoKIN docker image
+### 1.2 Download and install MorphoKIN docker image
 
 MorphoKIN software is provided as a Docker image and is available for download from the following Google Drive link:
 https://drive.google.com/file/d/1_4_R2FewU2zEvuYNKMx5L4b7T-Ao92kL/view
@@ -56,7 +71,7 @@ sudo docker load --input morphokin.tar.gz
 
 ```
 
-### 1.3. Download and extract MorphoKIN DATA package
+### 1.3 Download and extract MorphoKIN DATA package
 
 MorphoKIN requires a data package that contains runtime data and various configuration files.
 You can download the data package from the following Google Drive link:
@@ -79,7 +94,7 @@ gunzip -c MORPHODATA.tar.gz | tar x
 
 ---
 
-## 2. Using MorphoKIN from shell terminal
+## 2 Using MorphoKIN from shell terminal
 
 ### 2.1 Verify the free license validity
 
@@ -162,7 +177,7 @@ nohup morphokin --morphokin_working_dir /MORPHODATA --morphokin_config_file /MOR
 
 ---
 
-## 3. Python usage examples
+## 3 Python usage examples
 
 These examples need to MorphoKIN to be running on unix domain socket (See section 2.3 above)
 
