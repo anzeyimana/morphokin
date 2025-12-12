@@ -7,21 +7,21 @@ These core algorithms are described in detail in the referenced scientific publi
 
 ---
 ## Contents
-* [1 Installing MorphoKIN](#1)
-  * [Minimum System Requirements](#1_0)
-  * [1.1 Get a free license for MorphoKIN](#1_1)
-  * [1.2 Download and install MorphoKIN docker image](#1_2)
-  * [1.3 Download and extract MorphoKIN DATA package](#1_3)
-* [2 Using MorphoKIN from shell terminal](#2)
-  * [2.1 Verify the free license validity](#2_1)
-  * [2.2 Morphological parsing of Kinyarwanda text](#2_2)
-  * [2.3 Use MorphoKIN interactive shell for testing sentence parsing](#2_3)
-  * [2.4 Run MorphoKIN server on Unix domain socket](#2_4)
-* [3 Python usage examples](#3)
-  * [3.1 Morphological analysis and POS Tagging](#3_1)
-  * [3.2 Text Normalization (i.e. for TTS)](#3_2)
-  * [3.3 Syllabic Tokenization (i.e. for TTS)](#3_3)
-  * [3.4 Morphological synthesis](#3_4)
+* [1 Installing MorphoKIN](#1-installing-morphokin)
+  * [Minimum System Requirements](#minimum-system-requirements)
+  * [1.1 Get a free license for MorphoKIN](#11-get-a-free-license-for-morphokin)
+  * [1.2 Download and install MorphoKIN docker image](#12-download-and-install-morphokin-docker-image)
+  * [1.3 Download and extract MorphoKIN DATA package](#13-download-and-extract-morphokin-data-package)
+* [2 Using MorphoKIN from shell terminal](#2-using-morphokin-from-shell-terminal)
+  * [2.1 Verify the free license validity](#21-verify-the-free-license-validity)
+  * [2.2 Morphological parsing of Kinyarwanda text](#22-morphological-parsing-of-kinyarwanda-text)
+  * [2.3 Use MorphoKIN interactive shell for testing sentence parsing](#23-use-morphokin-interactive-shell-for-testing-sentence-parsing)
+  * [2.4 Run MorphoKIN server on Unix domain socket](#24-run-morphokin-server-on-unix-domain-socket)
+* [3 Python usage examples](#3-python-usage-examples)
+  * [3.1 Morphological analysis and POS Tagging](#31-morphological-analysis-and-pos-tagging)
+  * [3.2 Text Normalization (i.e. for TTS)](#32-text-normalization-ie-for-tts)
+  * [3.3 Syllabic Tokenization (i.e. for TTS)](#33-syllabic-tokenization-ie-for-tts)
+  * [3.4 Morphological synthesis](#34-morphological-synthesis)
 ---
 
 ## 1 Installing MorphoKIN
