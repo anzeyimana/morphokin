@@ -6,6 +6,8 @@ MorphoKIN implements core algorithms for Kinyarwanda morphological analysis, syn
 These core algorithms are described in detail in the referenced scientific publications which we made in the previous years.
 
 ---
+[[_TOC_]]
+---
 
 ## 1. Installing MorphoKIN
 
